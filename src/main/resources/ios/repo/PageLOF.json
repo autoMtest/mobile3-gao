@@ -1,0 +1,55 @@
+{
+	"oEditJJDM": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////input[contains(@id, 'zqdm-input-')]"
+		]
+	},
+
+	"oTextJJMC": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////p[@class='kmc-zqdm-zqmc']"
+		]
+	},
+
+	"oTextSX": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='申购上限']/../following-sibling::div[2]/label"
+		]
+	},
+
+	"oEditSL": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"id://wtjg-input"
+		]
+	},
+
+	"oTextKYZJ": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='可用资金']/../following-sibling::div[2]/label"
+		]
+	},
+
+	"oBtnTrade": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////div[contains(@class, 'kmc-submit-button')]/button"
+		]
+	}
+}

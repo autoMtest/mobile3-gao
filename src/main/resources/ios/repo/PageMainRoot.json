@@ -1,0 +1,91 @@
+{
+	"oBtnGPMR": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='买入']"
+		]
+	},
+
+	"oBtnGPMC": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='卖出']"
+		]
+	},
+
+	"oBtnZCCX": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='资产查询']"
+		]
+	},
+
+	"oBtnYZZZ": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"id://pic_banktrans"
+		]
+	},
+
+	"oBtnZJDD": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"id://pic_cash"
+		]
+	},
+
+	"oBtnJJ": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"id://pic_openfund"
+		]
+	},
+
+	"oBtnETF": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='ETF基金']"
+		]
+	},
+
+	"oBtnLOF": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='LOF基金']"
+		]
+	},
+
+	"oBtnGGT": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"id://pic_ggt"
+		]
+	},
+
+	"oBtnGFZR": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath:////label[text()='股份转让']"
+		]
+	}
+}

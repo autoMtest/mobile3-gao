@@ -1,0 +1,54 @@
+package mobile.test.base;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+
+import up.light.FolderType;
+import up.light.Setting;
+import up.light.utils.ArgumentUtil;
+
+public class SheetNames {
+	private static Map<String, String> names = new HashMap<>();
+
+	public static String getSheetName(String key) {
+		String v = names.get(key);
+		ArgumentUtil.notNull(v, "can't get sheetname with key: " + key);
+		return v;
+	}
+
+	public static void initialize() {
+		String file = Setting.getPath(FolderType.CONFIGURATION) + "sheetname.json";
+		FileReader r = null;
+
+		try {
+			r = new FileReader(file);
+			Gson g = new Gson();
+
+			Type type = new TypeToken<Map<String, String>>() {
+				private static final long serialVersionUID = 1L;
+			}.getType();
+
+			names = g.fromJson(r, type);
+
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (r != null) {
+				try {
+					r.close();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+
+	}
+
+}
