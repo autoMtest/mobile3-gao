@@ -2,6 +2,7 @@ package mobile.page.module;
 
 import org.openqa.selenium.WebDriverException;
 
+import mobile.controller.StopException;
 import mobile.page.base.AbstractPage;
 import up.light.pagefactory.TestElement;
 import up.light.wait.WaitUtil;
@@ -48,7 +49,11 @@ public class ToolBar extends AbstractPage {
 	}
 
 	public void doWaitForBtnJY() {
-		WaitUtil.waitFor(driver, oBtnJY, 30);
+		try {
+			WaitUtil.waitFor(driver, oBtnJY, 30);
+		} catch (WebDriverException ex) {
+			throw new StopException(ex);
+		}
 	}
 
 	public void doWaitAndCloseMsgBox() {
