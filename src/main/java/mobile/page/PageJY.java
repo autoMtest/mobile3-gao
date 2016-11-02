@@ -17,7 +17,7 @@ public class PageJY extends PageTradeWithSelect {
 
 	private TestElement oEditPrice;
 
-	@ElementOf(ElementOfs.CODE)
+	@ElementOf(ElementOfs.BUTTON_OK)
 	private TestElement oBtnBuyorSell;
 
 	/**
