@@ -42,5 +42,23 @@
 		[
 			"xpath:////div[@class='btn-bargain']/button"
 		]
+	},
+
+	"oMenuWTFS": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath://(//div[@class='btn-group select'])[last()]/button"
+		]
+	},
+
+	"oListWTFSes": 
+	{
+		"in": "WEBVIEW_LAST",
+		"bys": 
+		[
+			"xpath://(//ul[@class='dropdown-menu active'])[last()]/li"
+		]
 	}
 }

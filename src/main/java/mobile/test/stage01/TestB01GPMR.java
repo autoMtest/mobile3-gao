@@ -32,14 +32,19 @@ public class TestB01GPMR extends TestBase {
 		String vExpectName = param.get("名称");
 		AssertUtil.assertEquals(vExpectName, vActualName);
 		
+		//选择交易方式
+		if(!param.get("委托方式").equals("限价委托"))
+			mPage.doChoseWTFS(param.get("委托方式"));
+		
 		//输入数量
 		mPage.doInputNumber(param.get("数量"));
 		
 		//读取实际价格并替换
-		String vActualPrice = mPage.doGetPrice();
 		String vCheckPoint1 = param.get("验证1");
-		vCheckPoint1 = vCheckPoint1.replace("{PRICE}", vActualPrice);
-		
+		if(param.get("委托方式").equals("限价委托")){
+			String vActualPrice = mPage.doGetPrice();
+			vCheckPoint1 = vCheckPoint1.replace("{PRICE}", vActualPrice);
+		}
 		//点击买入
 		mPage.doTrade();
 		
