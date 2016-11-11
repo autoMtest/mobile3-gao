@@ -15,7 +15,7 @@ public class Alert2 extends AbstractPage {
 	private TestElement oTextMsgSuccess;
 	private TestElement oBtnOK;
 	// 委托失败对话框
-	private WebElement oTextMsgFail;
+	private TestElement oTextMsgFail;
 
 	public String doGetConfirmText() {
 		return getMsg(oTextConfirms);
@@ -26,7 +26,7 @@ public class Alert2 extends AbstractPage {
 			return getMsg(oTextMsgSuccess);
 		}
 
-		return getText(oTextMsgFail);
+		return getText(oTextMsgFail.e());
 	}
 
 	public void doAcceptConfirm() {
