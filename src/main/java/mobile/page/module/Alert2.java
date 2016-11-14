@@ -22,11 +22,11 @@ public class Alert2 extends AbstractPage {
 	}
 
 	public String doGetResultText() {
-		if (WaitUtil.exists(driver, oBtnOK, WaitUtil.WAIT_MEDIUM)) {
-			return getMsg(oTextMsgSuccess);
+		if(WaitUtil.exists(driver, oTextMsgFail, WaitUtil.WAIT_SHORT)) {
+			return getText(oTextMsgFail.e());
 		}
 
-		return getText(oTextMsgFail.e());
+		return getMsg(oTextMsgSuccess);
 	}
 
 	public void doAcceptConfirm() {
