@@ -14,6 +14,9 @@ import up.light.FolderType;
 import up.light.Setting;
 import up.light.utils.ArgumentUtil;
 
+/**
+ * 用于从sheetname.json中获取每个Test对应的Excel表名
+ */
 public class SheetNames {
 	private static Map<String, String> names = new HashMap<>();
 
@@ -23,6 +26,9 @@ public class SheetNames {
 		return v;
 	}
 
+	/**
+	 * 解析sheetname.json并存入Map
+	 */
 	public static void initialize() {
 		String file = Setting.getPath(FolderType.CONFIGURATION) + "sheetname.json";
 		FileReader r = null;

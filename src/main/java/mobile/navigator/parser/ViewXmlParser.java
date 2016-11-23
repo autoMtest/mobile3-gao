@@ -14,6 +14,9 @@ import up.light.FolderType;
 import up.light.Setting;
 import up.light.utils.LogUtil;
 
+/**
+ * view.xml解析器
+ */
 public class ViewXmlParser {
 
 	public static void parse() {

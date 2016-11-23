@@ -36,7 +36,7 @@ public abstract class AbstractPage extends PageBase {
 	}
 
 	/**
-	 * 获取对话框
+	 * 获取对话框(适用于股票、基金、融资融券等)
 	 * @return
 	 */
 	public Alert getAlert() {
@@ -44,7 +44,7 @@ public abstract class AbstractPage extends PageBase {
 	}
 
 	/**
-	 * 获取对话框
+	 * 获取对话框（适用于港股通、ETF、LOF、股转等）
 	 * @return
 	 */
 	public Alert2 getAlert2() {
@@ -69,10 +69,18 @@ public abstract class AbstractPage extends PageBase {
 		return StringUtils.strip(e.getText(), STRIP_CHARS);
 	}
 
+	/**
+	 * 去除字符串中的空格
+	 * @param str
+	 * @return
+	 */
 	protected String stripe(String str) {
 		return StringUtils.strip(str, STRIP_CHARS);
 	}
 
+	/**
+	 * 重置页面：当处于webview中时刷新页面，否则无动作
+	 */
 	public void reset() {
 		String context = driver.getContext();
 		if(context.startsWith("WEBVIEW_")) {

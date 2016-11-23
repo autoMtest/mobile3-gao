@@ -8,6 +8,9 @@ import up.light.utils.ArgumentUtil;
 import up.light.utils.ClassUtil;
 import up.light.utils.LogUtil;
 
+/**
+ * Page管理器，获取Page实例，为防止Page多次初始化，所有Page均使用单例模式
+ */
 public class PageManager {
 	private static Map<Class<? extends AbstractPage>, AbstractPage> pages = new HashMap<>();
 

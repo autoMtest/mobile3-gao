@@ -27,6 +27,9 @@ import up.light.utils.ScreenShot;
 import up.light.wait.WaitUtil;
 import up.light.writer.impl.ExcelWriter;
 
+/**
+ * 监听器，用于初始化Writer、解析view.xml、记录测试结果
+ */
 public class TestListenerImpl implements ITestListener, IConfigurationListener {
 	public static final String TAG_SKIP = "skip";
 

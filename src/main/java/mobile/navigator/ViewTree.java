@@ -9,6 +9,9 @@ import java.util.Map;
 import up.light.utils.ArgumentUtil;
 import up.light.utils.LogUtil;
 
+/**
+ * view树，用于路径搜索
+ */
 public class ViewTree {
 	public static final String ENTER = "enter";
 	public static final String BACK = "back";

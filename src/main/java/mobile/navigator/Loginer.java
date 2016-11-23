@@ -9,10 +9,18 @@ import mobile.page.base.PageManager;
 import up.light.Setting;
 import up.light.utils.LogUtil;
 
+/**
+ * 用于{@link ViewNavigator}实现自动登录
+ */
 public class Loginer {
 	private List<String> hasLoginedGroup = new ArrayList<>();
 	private int hookLoginDepth;
 
+	/**
+	 * 当前节点是否需要登录
+	 * @param node 节点实例
+	 * @return 需要登录true，否则false
+	 */
 	public boolean needLogin(ViewNode node) {
 		if (node.getDepth() == hookLoginDepth) {
 			return !hasLoginedGroup.contains(node.getGroupName());
@@ -21,6 +29,10 @@ public class Loginer {
 		return false;
 	}
 
+	/**
+	 * 登录指定分组
+	 * @param groupName 分组名（PTJY、RZRQ）
+	 */
 	public void login(String groupName) {
 		PageLogin page = PageManager.getPage(PageLogin.class);
 		String group = null;

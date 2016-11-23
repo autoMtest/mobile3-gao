@@ -8,6 +8,9 @@ import mobile.page.module.ToolBar;
 import up.light.DriverFactory;
 import up.light.pagefactory.TestElement;
 
+/**
+ * view节点，每个节点代表一个UI入口元素
+ */
 public class ViewNode {
 	// back element
 	private static ToolBar toolBar = PageManager.getPage(ToolBar.class);

@@ -18,6 +18,9 @@ import up.light.utils.ArgumentUtil;
 import up.light.utils.ClassUtil;
 import up.light.utils.Stack;
 
+/**
+ * view.xml内容处理器
+ */
 public class ViewXmlHandler extends DefaultHandler {
 	private ViewTree tree = new ViewTree();
 	private Stack<String> names = new Stack<>();

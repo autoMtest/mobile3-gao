@@ -4,6 +4,9 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * POJO，用于存放测试结果
+ */
 public class ResultBean {
 	private String mCaseName;	//用例名称
 	private String mStatus;		//结果

@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * ResultBean容器，以Map方式存放所有测试结果
+ */
 public class ResultHolder {
 	private static Map<String, List<ResultBean>> mResultMap = new LinkedHashMap<>();
 	

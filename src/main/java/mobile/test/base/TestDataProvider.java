@@ -9,6 +9,9 @@ import up.light.Setting;
 import up.light.io.FileSystemResource;
 import up.light.utils.DataIterator;
 
+/**
+ * Test数据提供者，采用迭代器模式，迭代过程由TestNG控制，无需人为干预
+ */
 public class TestDataProvider {
 	private static FileSystemResource mResource;
 
