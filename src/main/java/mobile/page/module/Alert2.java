@@ -13,7 +13,9 @@ public class Alert2 extends AbstractPage {
 	private TestElement oBtnConfirmOK;
 	// 委托成功对话框
 	private TestElement oTextMsgSuccess;
+	private TestElement oTextLiMsgSuccess;
 	private TestElement oBtnOK;
+	private TestElement oTitleMsgFail;
 	// 委托失败对话框
 	private TestElement oTextMsgFail;
 
@@ -27,6 +29,14 @@ public class Alert2 extends AbstractPage {
 		}
 
 		return getMsg(oTextMsgSuccess);
+	}
+	
+	public String doGetResultLiText() {
+		if (WaitUtil.exists(driver, oTitleMsgFail, WaitUtil.WAIT_MEDIUM)) {
+			return getText(oTextMsgFail.e()); 
+		}
+
+		return getMsg(oTextLiMsgSuccess);
 	}
 
 	public void doAcceptConfirm() {
