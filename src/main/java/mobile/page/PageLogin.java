@@ -3,8 +3,10 @@ package mobile.page;
 import org.openqa.selenium.WebElement;
 
 import mobile.page.base.AbstractPage;
+import mobile.page.base.PageManager;
 import mobile.page.module.Alert;
 import mobile.page.module.Keyboard;
+import mobile.page.module.Loader;
 import up.light.pagefactory.TestElement;
 import up.light.wait.WaitUtil;
 
@@ -14,9 +16,9 @@ public class PageLogin extends AbstractPage {
 	private TestElement oEditVerCode;
 	private TestElement oTextVerCode;
 	private TestElement oBtnLogin;
-	private TestElement oImgLoad;
+	private Loader mLoader = PageManager.getPage(Loader.class);
 
-	public void doLogin(String username, String password) {
+	public void doLogin(String username, String password, boolean checkAlert) {
 		// 等待用户名编辑框出现
 		WebElement eu = WaitUtil.waitFor(driver, oEditUser, 10);
 		Keyboard kb = getKeyboard();
@@ -36,17 +38,18 @@ public class PageLogin extends AbstractPage {
 		// 点击登录
 		oBtnLogin.e().click();
 
-		if (WaitUtil.exists(driver, oImgLoad, WaitUtil.WAIT_SHORT)) {
-			WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG * 3);
-		}
+		// 等待加载框消失
+		mLoader.waitForLoad();
 
-		Alert alert = getAlert();
-		if (alert.exists()) {
-			String t = alert.doGetText();
-			if (t.contains("“柜台测试”状态"))
-				alert.doAccept();
-			else
-				throw new RuntimeException(t);
+		if (checkAlert) {
+			Alert alert = getAlert();
+			if (alert.exists()) {
+				String t = alert.doGetText();
+				if (t.contains("“柜台测试”状态"))
+					alert.doAccept();
+				else
+					throw new RuntimeException(t);
+			}
 		}
 
 		// 等待登录按钮消失

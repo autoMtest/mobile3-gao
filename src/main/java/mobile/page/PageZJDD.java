@@ -16,7 +16,6 @@ import up.light.wait.WaitUtil;
 public class PageZJDD extends AbstractPage {
 	private TestElement oBtnCollect;
 	private TestElement oTextMoneys;
-	private TestElement oImgLoad;
 	// 主辅划转界面
 	private TestElement oBtnSwitch;
 	private TestElement oEditNum;
@@ -28,7 +27,7 @@ public class PageZJDD extends AbstractPage {
 	 * @return
 	 */
 	public float doGetTotalCanTransfer() {
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		
 		float total = 0;
 		String value = null;
@@ -57,7 +56,7 @@ public class PageZJDD extends AbstractPage {
 	 * @param num 划转数量
 	 */
 	public void doOpenTransfer(String zzh, String fzh, String type, String num) {
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		
 		boolean needSwitch = false;
 

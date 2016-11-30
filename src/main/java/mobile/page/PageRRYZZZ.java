@@ -19,7 +19,6 @@ public class PageRRYZZZ extends AbstractPage {
 	private TestElement oEditBankPwd;	//银行密码输入框
 	private TestElement oEditFundPwd;	//资金密码输入框
 	private TestElement oBtnOK;			//确定按钮
-	private TestElement oImgLoad;		//加载浮层
 	
 	/**
 	 * 切换类型：银转证、证转银
@@ -27,7 +26,7 @@ public class PageRRYZZZ extends AbstractPage {
 	 */
 	public void doSwithTo(String type) {
 		TestElement e = null;
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		
 		if ("银行转证券".equals(type)) {
 			e = oTitleYZZ;
@@ -37,8 +36,7 @@ public class PageRRYZZZ extends AbstractPage {
 
 		ArgumentUtil.notNull(e, "unsupport type: " + type);
 		e.e().click();
-		WaitUtil.sleep(500);
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 	}
 
 	/**
@@ -83,4 +81,5 @@ public class PageRRYZZZ extends AbstractPage {
 	public void doTrade() {
 		oBtnOK.e().click();
 	}
+
 }

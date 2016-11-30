@@ -4,38 +4,39 @@ import org.openqa.selenium.WebElement;
 
 import mobile.page.base.AbstractPage;
 import up.light.pagefactory.TestElement;
-import up.light.wait.Conditions;
 import up.light.wait.WaitUtil;
 
 /**
  * 基金定投定赎
+ * 
  * @category Stage-02
  */
 public class PageJJDTDS extends AbstractPage {
-	private TestElement oTextDT;	// 基金定投
-	private TestElement oTextDS;	// 基金定赎
-	private TestElement oBtnSQ;		// 申请按钮
+	private TestElement oTextDT; // 基金定投
+	private TestElement oTextDS; // 基金定赎
+	private TestElement oBtnSQ; // 申请按钮
 
-	private TestElement oEditCode;	// 输入基金代码
-	private TestElement oTextName;	// 基金名称
+	private TestElement oEditCode; // 输入基金代码
+	private TestElement oTextName; // 基金名称
 	private TestElement oEditNumber;// 输入定投金额
-	private TestElement oBtnTime;	// 扣款周期
-	private TestElement oTextMonth;	// 月
-	private TestElement oTextWeek;	// 周
-	private TestElement oMenuMonth;	// 列表项月
-	private TestElement oMenuWeek;	// 列表项周
+	private TestElement oBtnTime; // 扣款周期
+	private TestElement oTextMonth; // 月
+	private TestElement oTextWeek; // 周
+	private TestElement oMenuMonth; // 列表项月
+	private TestElement oMenuWeek; // 列表项周
 
-	private TestElement oEditBeginTime;	//开始日期
-	private TestElement oEditEndTime;	//终止日期
-	private TestElement oTextJEBZ;	// 巨额标志
+	private TestElement oEditBeginTime; // 开始日期
+	private TestElement oEditEndTime; // 终止日期
+	private TestElement oTextJEBZ; // 巨额标志
 
-	private TestElement oBtnTrade;	// 交易按钮
-	private TestElement oMsgRisk;	// 风险提示
-	private TestElement oImgLoad;	// 请等待...
+	private TestElement oBtnTrade; // 交易按钮
+	private TestElement oMsgRisk; // 风险提示
 
 	/**
 	 * 切换类型
-	 * @param type 基金定投、基金定赎
+	 * 
+	 * @param type
+	 *            基金定投、基金定赎
 	 */
 	public void doSwitch(String type) {
 		TestElement vToClick = null;
@@ -51,9 +52,9 @@ public class PageJJDTDS extends AbstractPage {
 			throw new RuntimeException(type + " is unsupported");
 		}
 
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		vToClick.e().click();
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 	}
 
 	/**
@@ -65,7 +66,9 @@ public class PageJJDTDS extends AbstractPage {
 
 	/**
 	 * 输入基金代码
-	 * @param code 基金代码
+	 * 
+	 * @param code
+	 *            基金代码
 	 * @return 基金名称
 	 */
 	public String doInputCode(String code) {
@@ -74,17 +77,19 @@ public class PageJJDTDS extends AbstractPage {
 		WebElement e = WaitUtil.waitFor(driver, oEditCode, WaitUtil.WAIT_LONG);
 		// 输入代码并等待数据加载
 		getKeyboard().doInput(e, code);
-		return WaitUtil.waitForText(driver, oTextName.e(), WaitUtil.WAIT_LONG, null, Conditions.NOTBLANK);
+		loadAndCheck();
+		return getText(oTextName.e());
 	}
 
 	/**
 	 * 输入交易数量
+	 * 
 	 * @param number
 	 */
 	public void doInputNumber(String number) {
 		WebElement e = oEditNumber.e();
 
-		if(!getValue(e).equals(number)) {
+		if (!getValue(e).equals(number)) {
 			driver.executeScript("arguments[0].value = ''", e);
 			getKeyboard().doInput(e, number);
 		}
@@ -92,17 +97,19 @@ public class PageJJDTDS extends AbstractPage {
 
 	/**
 	 * 选择扣款周期、赎回周期
-	 * @param type 月、周
-	 * @param time 日、周几
+	 * 
+	 * @param type
+	 *            月、周
+	 * @param time
+	 *            日、周几
 	 */
 	public void doChooseTime(String type, String time) {
 		oBtnTime.e().click();
 		WaitUtil.sleep(1000);
-		
-		if(time.endsWith("号")) {
+
+		if (time.endsWith("号")) {
 			time = time.substring(0, time.length() - 1);
 		}
-		
 
 		switch (type) {
 		case "每月":
@@ -130,7 +137,9 @@ public class PageJJDTDS extends AbstractPage {
 
 	/**
 	 * 选择巨额标志
-	 * @param jebz 取消、顺延
+	 * 
+	 * @param jebz
+	 *            取消、顺延
 	 */
 	public void doChooseJEBZ(String jebz) {
 		oTextJEBZ.e().click();
@@ -141,6 +150,7 @@ public class PageJJDTDS extends AbstractPage {
 
 	/**
 	 * 获取开始时间
+	 * 
 	 * @return
 	 */
 	public String doGetBeginTime() {
@@ -149,6 +159,7 @@ public class PageJJDTDS extends AbstractPage {
 
 	/**
 	 * 获取结束时间
+	 * 
 	 * @return
 	 */
 	public String doGetEndTime() {

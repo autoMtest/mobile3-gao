@@ -60,14 +60,5 @@
 		[
 			"xpath:////button[contains(@class, 'btn-red')]"
 		]
-	},
-
-	"oImgLoad": 
-	{
-		"in": "WEBVIEW_LAST",
-		"bys": 
-		[
-			"id://loading"
-		]
 	}
 }

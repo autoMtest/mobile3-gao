@@ -31,16 +31,16 @@
 		"in": "WEBVIEW_PTJY",
 		"bys": 
 		[
-			"id://pic_banktrans"
+			"xpath:////label[text()='银证转账']"
 		]
 	},
 
 	"oBtnZJDD": 
 	{
-		"in": "WEBVIEW_PTJY",
+		"in": "WEBVIEW_LAST",
 		"bys": 
 		[
-			"id://pic_cash"
+			"xpath:////button[text()='资金调度']"
 		]
 	},
 
@@ -49,7 +49,7 @@
 		"in": "WEBVIEW_PTJY",
 		"bys": 
 		[
-			"id://pic_openfund"
+			"xpath:////label[text()='开放式基金']"
 		]
 	},
 

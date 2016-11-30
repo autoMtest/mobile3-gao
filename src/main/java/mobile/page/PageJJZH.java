@@ -2,7 +2,6 @@ package mobile.page;
 
 import mobile.page.base.AbstractPage;
 import up.light.pagefactory.TestElement;
-import up.light.wait.Conditions;
 import up.light.wait.WaitUtil;
 
 /**
@@ -21,7 +20,8 @@ public class PageJJZH extends AbstractPage {
 
 	public String doInputZCDM(String code) {
 		getKeyboard().doInput(oEditZCDM.e(), code);
-		return stripe(WaitUtil.waitForText(driver, oTextZCMC.e(), WaitUtil.WAIT_MEDIUM, null, Conditions.NOTBLANK));
+		loadAndCheck();
+		return getText(oTextZCMC.e());
 	}
 
 	/**
@@ -31,7 +31,8 @@ public class PageJJZH extends AbstractPage {
 	 */
 	public String doInputZRDM(String code) {
 		getKeyboard().doInput(oEditZRDM.e(), code);
-		return stripe(WaitUtil.waitForText(driver, oTextZRMC.e(), WaitUtil.WAIT_MEDIUM, null, Conditions.NOTBLANK));
+		loadAndCheck();
+		return getText(oTextZRMC.e());
 	}
 
 	/**

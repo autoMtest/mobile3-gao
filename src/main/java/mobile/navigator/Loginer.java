@@ -36,9 +36,11 @@ public class Loginer {
 	public void login(String groupName) {
 		PageLogin page = PageManager.getPage(PageLogin.class);
 		String group = null;
+		boolean checkAlert = false;
 
 		if ("普通交易".equals(groupName)) {
 			group = "PTJY";
+			checkAlert = true;
 		} else {
 			group = "RZRQ";
 		}
@@ -47,7 +49,7 @@ public class Loginer {
 		String password = Setting.getProperty("password." + group);
 
 		try {
-			page.doLogin(username, password);
+			page.doLogin(username, password, checkAlert);
 			LogUtil.log.info(String.format("[Login] %s, username: %s, password: %s", group, username, password));
 		} catch (Exception e) {
 			throw new StopException(e);

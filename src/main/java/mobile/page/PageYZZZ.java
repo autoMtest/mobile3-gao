@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import mobile.page.base.AbstractPage;
 import up.light.pagefactory.TestElement;
 import up.light.utils.ArgumentUtil;
-import up.light.wait.WaitUtil;
 
 /**
  * 银证转账
@@ -22,7 +21,6 @@ public class PageYZZZ extends AbstractPage {
 	private TestElement oEditNum;	//转账金额
 	private TestElement oEditPwd;	//密码输入框
 	private TestElement oBtnOK;		//确定按钮
-	private TestElement oImgLoad;	//加载浮层
 	
 	/**
 	 * 切换类型：银转证、证转银
@@ -30,7 +28,7 @@ public class PageYZZZ extends AbstractPage {
 	 */
 	public void doSwithTo(String type) {
 		TestElement e = null;
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		
 		if ("银行转证券".equals(type)) {
 			e = oTitleYZZ;
@@ -40,8 +38,7 @@ public class PageYZZZ extends AbstractPage {
 
 		ArgumentUtil.notNull(e, "unsupport type: " + type);
 		e.e().click();
-		WaitUtil.sleep(500);
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 	}
 
 	/**

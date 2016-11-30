@@ -17,15 +17,6 @@
 		]
 	},
 
-	"oImgLoad": 
-	{
-		"in": "WEBVIEW_LAST",
-		"bys": 
-		[
-			"id://loading"
-		]
-	},
-
 	"oBtnSwitch": 
 	{
 		"in": "WEBVIEW_LAST",
