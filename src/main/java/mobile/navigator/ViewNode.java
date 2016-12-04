@@ -22,15 +22,16 @@ public class ViewNode {
 	// node infomation
 	private ViewNode parent;
 	private String name;
-	private int depth;
+//	private int depth;
 	private TestElement element;
+	private boolean checklogin;
 	private INavigationHandler handler;
 
-	public ViewNode(ViewNode parent, String name, int depth, TestElement element, INavigationHandler handler) {
+	public ViewNode(ViewNode parent, String name, TestElement element, boolean checklogin, INavigationHandler handler) {
 		this.parent = parent;
 		this.name = name;
-		this.depth = depth;
 		this.element = element;
+		this.checklogin = checklogin;
 		this.handler = handler;
 	}
 
@@ -110,14 +111,6 @@ public class ViewNode {
 		this.name = name;
 	}
 
-	public int getDepth() {
-		return depth;
-	}
-
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-
 	public TestElement getElement() {
 		return element;
 	}
@@ -126,6 +119,14 @@ public class ViewNode {
 		this.element = element;
 	}
 
+	public boolean isChecklogin() {
+		return checklogin;
+	}
+
+	public void setChecklogin(boolean checklogin) {
+		this.checklogin = checklogin;
+	}
+	
 	public INavigationHandler getHandler() {
 		return handler;
 	}
@@ -134,10 +135,8 @@ public class ViewNode {
 		this.handler = handler;
 	}
 
-	@Override
 	public String toString() {
 		String p = parent != null ? parent.getName() : null;
-		return String.format("ViewNode[%s(%s), %d]", name, p, depth);
+		return String.format("ViewNode[%s(%s)]", name, p);
 	}
-
 }

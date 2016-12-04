@@ -5,7 +5,6 @@
 	<xsd:element name="application">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element ref="hookLoginDepth" />
 				<xsd:element ref="loginGroupDepth" />
 				<xsd:sequence maxOccurs="unbounded">
 					<xsd:element ref="view" />
@@ -14,7 +13,6 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name="hookLoginDepth" type="xsd:nonNegativeInteger" />
 	<xsd:element name="loginGroupDepth" type="xsd:nonNegativeInteger" />
 	<xsd:element name="backElement" type="xsd:string" />
 
@@ -25,6 +23,8 @@
 			</xsd:sequence>
 			<xsd:attribute name="name" type="xsd:string" use="required" />
 			<xsd:attribute name="repo" type="xsd:string" use="required" />
+			<xsd:attribute name="checklogin" type="xsd:boolean"
+				default="false" />
 			<xsd:attribute name="handler" type="xsd:string" />
 			<xsd:attribute name="enable" type="xsd:boolean"
 				default="true" />

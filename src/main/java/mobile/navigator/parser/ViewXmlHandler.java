@@ -29,13 +29,12 @@ public class ViewXmlHandler extends DefaultHandler {
 	private int disableDepth;
 	private int groupDepth;
 	private String groupName;
-
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		names.push(qName);
 
 		if ("application".equals(qName)) {
-			ViewNode node = new ViewNode(null, "ROOT", 0, null, null);
+			ViewNode node = new ViewNode(null, "ROOT", null,false, null);
 			tree.addNode(node);
 			ViewNavigator.setTree(tree);
 			nodes.push(node);
@@ -45,8 +44,9 @@ public class ViewXmlHandler extends DefaultHandler {
 			if (!isDisabled(attributes)) {
 				String name = getValue(attributes, "name", true, null);
 				TestElement element = getElement(getValue(attributes, "repo", true, null));
+				Boolean checklogin = Boolean.valueOf(getValue(attributes, "checklogin", false, "false"));
 				INavigationHandler handler = getHandler(attributes.getValue("handler"));
-				node = new ViewNode(nodes.peek(), name, nodes.size(), element, handler);
+				node = new ViewNode(nodes.peek(), name, element, checklogin, handler);
 				tree.addNode(node);
 
 				if (nodes.size() == groupDepth) {
@@ -71,10 +71,7 @@ public class ViewXmlHandler extends DefaultHandler {
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		String name = names.peek();
-
-		if ("hookLoginDepth".equals(name)) {
-			ViewNode.getLoginer().setHookLoginDepth(Integer.valueOf(new String(ch, start, length)));
-		} else if ("loginGroupDepth".equals(name)) {
+		if ("loginGroupDepth".equals(name)) {
 			groupDepth = Integer.valueOf(new String(ch, start, length));
 		}
 	}
