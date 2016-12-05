@@ -14,7 +14,6 @@ import up.light.utils.LogUtil;
  */
 public class Loginer {
 	private List<String> hasLoginedGroup = new ArrayList<>();
-
 	/**
 	 * 当前节点是否需要登录
 	 * @param node 节点实例
@@ -22,11 +21,13 @@ public class Loginer {
 	 */
 	public boolean needLogin(ViewNode node) {
 		PageLogin page = PageManager.getPage(PageLogin.class);
+
+		if (hasLoginedGroup.contains(node.getGroupName()))
+			return false;
 		if (node.isChecklogin() == true){
 			if (page.exitsBtnLogin() ==true)
-			return !hasLoginedGroup.contains(node.getGroupName());		
+				return true;
 		}
-
 		return false;
 	}
 
