@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import mobile.page.base.AbstractPage;
+import mobile.page.base.PageManager;
 import up.light.Setting;
 import up.light.pagefactory.TestElement;
 import up.light.utils.LogUtil;
@@ -16,9 +17,11 @@ public class Alert extends AbstractPage {
 	private TestElement mControls;
 	private TestElement oBtnOK;
 	private TestElement oBtnCancel;
+	private Loader mLoader = PageManager.getPage(Loader.class);
 
 	public String doGetText() {
-		WaitUtil.sleep(1000);
+		mLoader.waitForLoad();
+
 		StringBuilder sb = new StringBuilder();
 		String content = null;
 		int i = 1;

@@ -42,14 +42,5 @@
 		[
 			"id://login-button"
 		]
-	},
-
-	"oImgLoad": 
-	{
-		"in": "WEBVIEW_LAST",
-		"bys": 
-		[
-			"id://loading"
-		]
 	}
 }

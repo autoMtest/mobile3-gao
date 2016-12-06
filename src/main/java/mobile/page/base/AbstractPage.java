@@ -7,6 +7,7 @@ import io.appium.java_client.AppiumDriver;
 import mobile.page.module.Alert;
 import mobile.page.module.Alert2;
 import mobile.page.module.Keyboard;
+import mobile.page.module.Loader;
 import mobile.page.module.ToolBar;
 import up.light.DriverFactory;
 import up.light.pagefactory.PageBase;
@@ -14,6 +15,7 @@ import up.light.utils.LogUtil;
 import up.light.wait.WaitUtil;
 
 public abstract class AbstractPage extends PageBase {
+
 	@SuppressWarnings("unchecked")
 	protected static AppiumDriver<WebElement> driver = (AppiumDriver<WebElement>)DriverFactory.getDriver();
 	// 网页空格ASCII码是160，但trim只能处理ASCII为32的空格
@@ -76,6 +78,16 @@ public abstract class AbstractPage extends PageBase {
 	 */
 	protected String stripe(String str) {
 		return StringUtils.strip(str, STRIP_CHARS);
+	}
+	
+	protected void loadAndCheck() {
+		Loader vLoader = PageManager.getPage(Loader.class);
+		vLoader.waitForLoad();
+		Alert alert = getAlert();
+
+		if(alert.exists()) {
+			throw new RuntimeException(alert.doGetText());
+		}
 	}
 
 	/**

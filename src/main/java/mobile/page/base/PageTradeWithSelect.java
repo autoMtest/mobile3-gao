@@ -4,8 +4,8 @@ import java.lang.reflect.Field;
 
 import mobile.page.PageCodeSelect;
 import mobile.page.module.Alert;
+import mobile.page.module.Loader;
 import up.light.pagefactory.TestElement;
-import up.light.wait.Conditions;
 import up.light.wait.WaitUtil;
 
 /**
@@ -18,6 +18,7 @@ public class PageTradeWithSelect extends AbstractPage {
 	private TestElement mElementOfButtonOK;
 
 	private PageCodeSelect mPageCodeSelect = PageManager.getPage(PageCodeSelect.class);
+	private Loader mLoader = PageManager.getPage(Loader.class);
 	private boolean isInSelectView;
 
 	public PageTradeWithSelect() {
@@ -72,13 +73,16 @@ public class PageTradeWithSelect extends AbstractPage {
 		mPageCodeSelect.doInputCode(code);
 		isInSelectView = false;
 
+		// 等待加载框消失
+		mLoader.waitForLoad();
+
 		// 检查对话框
 		Alert alert = getAlert();
 		if (alert.exists()) {
 			throw new RuntimeException(alert.doGetText());
 		}
 
-		return stripe(WaitUtil.waitForText(driver, mElementOfName.e(), WaitUtil.WAIT_MEDIUM, null, Conditions.NOTBLANK));
+		return getText(mElementOfName.e());
 	}
 
 	/**

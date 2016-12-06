@@ -19,7 +19,6 @@ public class PageZCCX extends AbstractPage {
 	private TestElement oTitleUSD;	//美元
 	private TestElement oTextKQ;	//可用
 	private TestElement oTextKY;	//可取
-	private TestElement oImgLoad;	//加载浮层
 	
 	/**
 	 * 切换币种
@@ -39,7 +38,6 @@ public class PageZCCX extends AbstractPage {
 
 		ArgumentUtil.notNull(e, "unsupport currency: " + name);
 		e.e().click();
-		WaitUtil.sleep(1000);
 	}
 
 	/**
@@ -47,7 +45,7 @@ public class PageZCCX extends AbstractPage {
 	 * @return 返回包含资产数值的Map
 	 */
 	public Map<String, String> doGetNumbers() {
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		Map<String, String> m = new HashMap<>();
 		m.put("可用", oTextKY.e().getText());
 		m.put("可取", oTextKQ.e().getText());

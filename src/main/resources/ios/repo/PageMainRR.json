@@ -31,7 +31,7 @@
 		"in": "WEBVIEW_LAST",
 		"bys": 
 		[
-			"id://ptmr"
+			"xpath:////label[text()='担保物买入']"
 		]
 	},
 
@@ -40,7 +40,7 @@
 		"in": "WEBVIEW_LAST",
 		"bys": 
 		[
-			"id://ptmc"
+			"xpath:////label[text()='担保物卖出']"
 		]
 	},
 

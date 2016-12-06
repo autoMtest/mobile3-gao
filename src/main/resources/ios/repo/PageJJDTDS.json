@@ -141,14 +141,5 @@
 		[
 			"xpath:////td[text()='基金风险等级与客户等级不匹配,你是否要继续进行交易?']"
 		]
-	},
-
-	"oImgLoad": 
-	{
-		"in": "WEBVIEW_LAST",
-		"bys": 
-		[
-			"id://loading"
-		]
 	}
 }

@@ -4,7 +4,6 @@ import org.openqa.selenium.NoSuchElementException;
 
 import mobile.page.base.AbstractPage;
 import up.light.pagefactory.TestElement;
-import up.light.wait.Conditions;
 import up.light.wait.WaitUtil;
 
 /**
@@ -25,7 +24,8 @@ public class PageJJFHSZ extends AbstractPage {
 	 */
 	public String doInputJJDM(String code) {
 		getKeyboard().doInput(oEditJJDM.e(), code);
-		return stripe(WaitUtil.waitForText(driver, oTextJJMC.e(), WaitUtil.WAIT_MEDIUM, null, Conditions.NOTBLANK));
+		loadAndCheck();
+		return getText(oTextJJMC.e());
 	}
 
 	/**

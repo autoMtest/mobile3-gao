@@ -51,14 +51,5 @@
 		[
 			"xpath:////button[text()='划转']"
 		]
-	},
-
-	"oImgLoad": 
-	{
-		"in": "WEBVIEW_LAST",
-		"bys": 
-		[
-			"id://loading"
-		]
 	}
 }

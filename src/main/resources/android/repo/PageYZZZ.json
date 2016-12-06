@@ -51,14 +51,5 @@
 		[
 			"id://btnYzzz"
 		]
-	},
-
-	"oImgLoad": 
-	{
-		"in": "WEBVIEW_LAST",
-		"bys": 
-		[
-			"id://loading"
-		]
 	}
 }

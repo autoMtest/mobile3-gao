@@ -5,7 +5,6 @@ import mobile.page.base.ElementOfs;
 import mobile.page.base.PageTradeWithSelect;
 import up.light.pagefactory.TestElement;
 import up.light.utils.ArgumentUtil;
-import up.light.wait.WaitUtil;
 
 public class PageRRDBPHZ extends PageTradeWithSelect {
 	private TestElement oBtnPT2XY;	// 普通转信用
@@ -23,11 +22,8 @@ public class PageRRDBPHZ extends PageTradeWithSelect {
 	@ElementOf(ElementOfs.BUTTON_OK)
 	private TestElement oBtnSubmit;	// 划转提交按钮
 
-	private TestElement oImgLoad;	// 加载浮层
-
-
 	public void doSwithTo(String type) {
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 		TestElement e = null;
 		
 		if ("普通转信用".equals(type)) {
@@ -38,7 +34,7 @@ public class PageRRDBPHZ extends PageTradeWithSelect {
 
 		ArgumentUtil.notNull(e, "unsupport type: " + type);
 		e.e().click();
-		WaitUtil.sleep(500);
-		WaitUtil.untilGone(driver, oImgLoad, WaitUtil.WAIT_LONG);
+		loadAndCheck();
 	}
+
 }

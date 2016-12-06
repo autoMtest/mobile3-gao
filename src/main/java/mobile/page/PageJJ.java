@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 
 import mobile.page.base.AbstractPage;
 import up.light.pagefactory.TestElement;
-import up.light.wait.Conditions;
 import up.light.wait.WaitUtil;
 
 /**
@@ -31,9 +30,10 @@ public class PageJJ extends AbstractPage {
 		WebElement eCode = WaitUtil.waitFor(driver, oEditCode, WaitUtil.WAIT_LONG * 2);
 		//输入代码并等待数据加载
 		getKeyboard().doInput(eCode, code);
-		
+
 		WebElement eName = oTextName.e();
-		WaitUtil.waitForText(driver, eName, WaitUtil.WAIT_LONG, null, Conditions.NOTBLANK);
+		// 等待加载框消失
+		loadAndCheck();
 		
 		return getText(eName);
 	}
