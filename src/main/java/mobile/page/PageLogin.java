@@ -52,4 +52,13 @@ public class PageLogin extends AbstractPage {
 		// 等待登录按钮消失
 		WaitUtil.untilGone(driver, oBtnLogin, WaitUtil.WAIT_MEDIUM);
 	}
+	
+	public boolean exitsBtnLogin(){
+		
+		boolean ret;
+		ret = WaitUtil.exists(driver, oBtnLogin, WaitUtil.WAIT_SHORT);
+		if (ret)
+			return true;
+		return false;
+	}
 }
