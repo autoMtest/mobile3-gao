@@ -12,7 +12,9 @@
 			<view name="股票卖出" repo="PageMainRoot.oBtnGPMC" checklogin="true"/>
 			<view name="资产查询" repo="PageMainRoot.oBtnZCCX" checklogin="true"/>
 			<view name="银证转账" repo="PageMainRoot.oBtnYZZZ" checklogin="true"/>
-			<view name="资金调度" repo="PageMainRoot.oBtnZJDD" checklogin="true"/>
+			<view name="银证转账" repo="PageMainRoot.oBtnYZZZ" checklogin="true">
+				<view name="资金调度" repo="PageMainRoot.oBtnZJDD" />
+			</view>
 
 			<view name="开放式基金" repo="PageMainRoot.oBtnJJ" checklogin="true">
 				<view name="基金认购" repo="PageMainJJ.oBtnRG" />
