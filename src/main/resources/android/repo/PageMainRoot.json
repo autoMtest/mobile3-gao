@@ -80,12 +80,12 @@
 		]
 	},
 
-	"oBtnGFZR": 
+	"oBtnGengDuo":
 	{
 		"in": "WEBVIEW_PTJY",
 		"bys": 
 		[
-			"xpath:////label[text()='股份转让']"
+			"xpath:////li[last()]//img[@id='btn_cancel']"
 		]
 	}
 }

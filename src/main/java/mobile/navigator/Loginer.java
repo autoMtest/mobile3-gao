@@ -14,18 +14,20 @@ import up.light.utils.LogUtil;
  */
 public class Loginer {
 	private List<String> hasLoginedGroup = new ArrayList<>();
-	private int hookLoginDepth;
-
 	/**
 	 * 当前节点是否需要登录
 	 * @param node 节点实例
 	 * @return 需要登录true，否则false
 	 */
 	public boolean needLogin(ViewNode node) {
-		if (node.getDepth() == hookLoginDepth) {
-			return !hasLoginedGroup.contains(node.getGroupName());
-		}
+		PageLogin page = PageManager.getPage(PageLogin.class);
 
+		if (hasLoginedGroup.contains(node.getGroupName()))
+			return false;
+		if (node.isChecklogin() == true){
+			if (page.exitsBtnLogin() ==true)
+				return true;
+		}
 		return false;
 	}
 
@@ -60,14 +62,6 @@ public class Loginer {
 
 	public void reset() {
 		hasLoginedGroup.clear();
-	}
-
-	public int getHookLoginDepth() {
-		return hookLoginDepth;
-	}
-
-	public void setHookLoginDepth(int hookLoginDepth) {
-		this.hookLoginDepth = hookLoginDepth;
 	}
 
 }

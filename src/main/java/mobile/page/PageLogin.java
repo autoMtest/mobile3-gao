@@ -55,4 +55,12 @@ public class PageLogin extends AbstractPage {
 		// 等待登录按钮消失
 		WaitUtil.untilGone(driver, oBtnLogin, WaitUtil.WAIT_MEDIUM);
 	}
+	
+	/**
+	 * 判断登录按钮是否存在，供Navigator自动登录使用
+	 * @return 存在返回true，否则false
+	 */
+	public boolean exitsBtnLogin(){
+		return WaitUtil.exists(driver, oBtnLogin, WaitUtil.WAIT_SHORT);
+	}
 }
